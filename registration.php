@@ -9,12 +9,9 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-    <script type="text/javascript" src="JScript/regisScript.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+  
   
 
   <style>
@@ -227,8 +224,7 @@
   </nav>
 
 
-
-    <div class="container">
+ <div class="container">
         <form class="well form-horizontal" action="week5.php " method="post"  id="contact_form" data-toggle="validator"  role="form">
             <fieldset>
 
@@ -359,8 +355,6 @@
             </fieldset>
             </form>
         </div>
-
-
 
 
 
