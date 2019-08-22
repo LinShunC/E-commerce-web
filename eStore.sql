@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2019 at 04:17 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Generation Time: Aug 23, 2019 at 12:45 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,14 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accessery`
+-- Table structure for table `accessory`
 --
 
-CREATE TABLE `accessery` (
+CREATE TABLE `accessory` (
   `accId` int(11) NOT NULL,
-  `accType` varchar(30) NOT NULL,
-  `productId` int(11) NOT NULL
+  `accType` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accessory`
+--
+
+INSERT INTO `accessory` (`accId`, `accType`) VALUES
+(1, 'power bank'),
+(2, 'cable'),
+(3, 'charger'),
+(4, 'screen protector'),
+(5, 'case');
 
 -- --------------------------------------------------------
 
@@ -42,8 +52,57 @@ CREATE TABLE `accessery` (
 
 CREATE TABLE `accessorySupport` (
   `accId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `supportedPID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accessorySupport`
+--
+
+INSERT INTO `accessorySupport` (`accId`, `productId`, `supportedPID`) VALUES
+(2, 18, 4),
+(2, 18, 3),
+(4, 21, 6),
+(4, 22, 1),
+(5, 23, 3),
+(5, 24, 1),
+(3, 20, 4),
+(3, 20, 3),
+(3, 20, 1),
+(3, 20, 5),
+(3, 20, 8),
+(3, 20, 10),
+(3, 20, 12),
+(3, 20, 14),
+(3, 20, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accessory_product`
+--
+
+CREATE TABLE `accessory_product` (
+  `accId` int(11) NOT NULL,
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accessory_product`
+--
+
+INSERT INTO `accessory_product` (`accId`, `productId`) VALUES
+(1, 15),
+(1, 16),
+(2, 17),
+(2, 18),
+(3, 19),
+(3, 20),
+(4, 21),
+(4, 22),
+(5, 23),
+(5, 24);
 
 -- --------------------------------------------------------
 
@@ -76,7 +135,7 @@ CREATE TABLE `cart_product` (
 
 CREATE TABLE `catagory` (
   `catagoryId` int(11) NOT NULL,
-  `cName` varchar(30) NOT NULL
+  `cName` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -88,10 +147,10 @@ INSERT INTO `catagory` (`catagoryId`, `cName`) VALUES
 (2, 'Apple'),
 (3, 'Samsung'),
 (4, 'Oppo'),
-(5, 'Huewei'),
+(5, 'Huawei'),
 (6, 'LG'),
 (7, 'Nokia'),
-(8, 'Accessories');
+(8, 'Accessory');
 
 -- --------------------------------------------------------
 
@@ -101,15 +160,13 @@ INSERT INTO `catagory` (`catagoryId`, `cName`) VALUES
 
 CREATE TABLE `customer` (
   `customerId` int(11) NOT NULL,
-  `fName` varchar(30) NOT NULL,
-  `lName` varchar(30) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `fName` varchar(20) NOT NULL,
+  `lName` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `password` varchar(10) NOT NULL,
   `contactNo` varchar(10) NOT NULL,
-  `dob` date NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `profilePic` varchar(10) DEFAULT NULL
+  `address` varchar(100) NOT NULL,
+  `profilePic` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -120,10 +177,9 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `order` (
   `orderId` int(11) NOT NULL,
-  `trackingNo` varchar(10) DEFAULT NULL,
-  `orderStatus` varchar(30) NOT NULL DEFAULT 'Preparing',
-  `customerId` int(11) NOT NULL,
-  `paymentId` int(11) NOT NULL
+  `orderStatus` varchar(30) NOT NULL,
+  `trackingNo` varchar(10) NOT NULL,
+  `customerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -146,7 +202,8 @@ CREATE TABLE `order_product` (
 
 CREATE TABLE `payment` (
   `paymentId` int(11) NOT NULL,
-  `status` varchar(30) NOT NULL
+  `status` varchar(20) NOT NULL,
+  `orderId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -157,10 +214,10 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `product` (
   `productId` int(11) NOT NULL,
-  `pName` varchar(50) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
-  `detail` varchar(500) NOT NULL,
-  `picAddress` varchar(100) NOT NULL,
+  `pName` varchar(80) NOT NULL,
+  `price` double(6,2) NOT NULL,
+  `detail` varchar(50) NOT NULL,
+  `pictures` varchar(50) NOT NULL,
   `catagoryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -168,37 +225,54 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `pName`, `price`, `detail`, `picAddress`, `catagoryId`) VALUES
-(2, 'Google Pixel 3 64GB (Clearly White)', '1199', '', '', 1),
-(3, 'Google Pixel 3XL 64GB (Just Black)', '1099', '', '', 1),
-(8, 'Apple iPhone XS Max 64GB (Space Grey)', '1799', '', '', 2),
-(9, 'Apple iPhone 8 64GB (Space Grey)', '979', '', '', 2),
-(10, 'Samsung Galaxy S9 256GB (Midnight Black)', '1149', '', '', 3),
-(11, 'Samsung Galaxy S10 128GB (Prism Green)', '1349', '', '', 3),
-(14, 'OPPO AX5s (Black)', '279', '', '', 4),
-(15, 'OPPO Reno Z (Aurora Purple)', '499', '', '', 4),
-(16, 'Huawei Nova 3e (Klein Blue)', '298', '', '', 5),
-(17, 'Huawei P30 Pro (Breathing Crystal)', '1399', '', '', 5),
-(18, 'LG V30+ 128GB (Black)', '799', '', '', 6),
-(19, 'LG V40 ThinQ 128GB (Moroccan Blue)', '799', '', '', 6),
-(20, 'Nokia 8.1 (Steel/Copper)', '649', '', '', 7),
-(21, 'Nokia 9 PureView with Android One (Midnight Blue)', '899', '', '', 7);
+INSERT INTO `product` (`productId`, `pName`, `price`, `detail`, `pictures`, `catagoryId`) VALUES
+(1, 'Google Pixel 3 64GB (Clearly White)', 1199.00, '', '', 1),
+(2, 'Google Pixel 3a XL 64GB (Just Black)', 799.00, '', '', 1),
+(3, 'Apple iPhone XS Max 64GB (Space Grey)', 1799.00, '', '', 2),
+(4, 'Apple iPhone 8 64GB (Space Grey)', 979.00, '', '', 2),
+(5, 'Samsung Galaxy S9 256GB (Midnight Black)', 1149.00, '', '', 3),
+(6, 'Samsung Galaxy S10 128GB (Prism Green)', 1349.00, '', '', 3),
+(7, 'OPPO AX5s (Black)', 279.00, '', '', 4),
+(8, 'OPPO Reno Z (Aurora Purple)', 499.00, '', '', 4),
+(9, 'Huawei Nova 3e (Klein Blue)', 399.00, '', '', 5),
+(10, 'Huawei P30 Pro (Breathing Crystal)', 1399.00, '', '', 5),
+(11, 'LG V30+ 128GB Handset (Black)', 799.00, '', '', 6),
+(12, 'LG V40 ThinQ 128GB Handset (Moroccan Blue)', 799.00, '', '', 6),
+(13, 'Nokia 8.1 (Steel/Copper)', 649.00, '', '', 7),
+(14, 'Nokia 9 PureView with Android One (Midnight Blue)', 899.00, '', '', 7),
+(15, 'Jackery Power2Go Dock with 2 x 5100mAh Power Bank', 109.95, '', '', 8),
+(16, 'Cygnett ChargeUp Compact 10,000 mAh Dual USB 2.1A Power Bank (Black)', 59.95, '', '', 8),
+(17, 'Samsung Data Cable Combo (Type-C and Micro USB)', 19.95, '', '', 8),
+(18, 'Belkin MixIT DuraTek Lightning to USB Cable (Gold)', 34.95, '', '', 8),
+(19, 'XCD Essentials 5 Port USB Charger 39W/7.8A', 49.95, '', '', 8),
+(20, 'Belkin BoostUp 5W Qi Wireless Charging Stand (Black)', 49.94, '', '', 8),
+(21, 'Griffin TPU Film Screen Protector for Samsung Galaxy S10', 24.95, '', '', 8),
+(22, 'Cygnett RealCurve 3D Double Tempered Glass Screen Protector for Pixel 3', 49.94, '', '', 8),
+(23, 'Lifeproof Fre Case for iPhone XS Max (Black)', 129.95, '', '', 8),
+(24, 'Speck Presidio Stay Clear Case for Google Pixel 3', 49.95, '', '', 8);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `accessery`
+-- Indexes for table `accessory`
 --
-ALTER TABLE `accessery`
-  ADD PRIMARY KEY (`accId`),
-  ADD KEY `productId` (`productId`);
+ALTER TABLE `accessory`
+  ADD PRIMARY KEY (`accId`);
 
 --
 -- Indexes for table `accessorySupport`
 --
 ALTER TABLE `accessorySupport`
+  ADD KEY `accId` (`accId`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `supportedPID` (`supportedPID`);
+
+--
+-- Indexes for table `accessory_product`
+--
+ALTER TABLE `accessory_product`
   ADD KEY `accId` (`accId`),
   ADD KEY `productId` (`productId`);
 
@@ -233,8 +307,7 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`orderId`),
-  ADD KEY `customerId` (`customerId`),
-  ADD KEY `paymentId` (`paymentId`);
+  ADD KEY `customerId` (`customerId`);
 
 --
 -- Indexes for table `order_product`
@@ -247,7 +320,8 @@ ALTER TABLE `order_product`
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`paymentId`);
+  ADD PRIMARY KEY (`paymentId`),
+  ADD KEY `orderId` (`orderId`);
 
 --
 -- Indexes for table `product`
@@ -261,10 +335,10 @@ ALTER TABLE `product`
 --
 
 --
--- AUTO_INCREMENT for table `accessery`
+-- AUTO_INCREMENT for table `accessory`
 --
-ALTER TABLE `accessery`
-  MODIFY `accId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `accessory`
+  MODIFY `accId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -276,13 +350,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `catagory`
 --
 ALTER TABLE `catagory`
-  MODIFY `catagoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `catagoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -300,24 +374,26 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `accessery`
---
-ALTER TABLE `accessery`
-  ADD CONSTRAINT `accessery_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `accessorySupport`
 --
 ALTER TABLE `accessorySupport`
   ADD CONSTRAINT `accessorySupport_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `accessorySupport_ibfk_2` FOREIGN KEY (`accId`) REFERENCES `accessery` (`accId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `accessorySupport_ibfk_2` FOREIGN KEY (`accId`) REFERENCES `accessory` (`accId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `accessorySupport_ibfk_3` FOREIGN KEY (`supportedPID`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `accessory_product`
+--
+ALTER TABLE `accessory_product`
+  ADD CONSTRAINT `accessory_product_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `accessory_product_ibfk_2` FOREIGN KEY (`accId`) REFERENCES `accessory` (`accId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cart`
@@ -336,15 +412,20 @@ ALTER TABLE `cart_product`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customerId`) REFERENCES `customer` (`customerId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`paymentId`) REFERENCES `payment` (`paymentId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customerId`) REFERENCES `customer` (`customerId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`orderId`) REFERENCES `order_product` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`
