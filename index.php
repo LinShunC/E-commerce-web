@@ -9,10 +9,6 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-    
-  
-  
 
   <style>
     body {
@@ -25,12 +21,58 @@
       font-size: 20px;
       color: #111;
     }
-    
+    .container {
+      padding: 80px 120px;
+    }
+    .containerPromo {
+      padding: 10px 50px;
+    }
+    .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+    }
+    .person:hover {
+      border-color: #f1f1f1;
+    }
+    .carousel-inner img {
+      height: 100%;
+      width: auto;
+      margin: auto;
+    }
+    .carousel-caption h3 {
+      color: #fff !important;
+    }
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+      }
+    }
+    .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+    }
+    .bg-1 h3 {color: #fff;}
+    .bg-1 p {font-style: italic;}
+    .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
     .list-group-item:last-child {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     }
-    
+    .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+    }
+    .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+    }
     .btn {
       padding: 10px 20px;
       background-color: #333;
@@ -43,7 +85,15 @@
       background-color: #fff;
       color: #000;
     }
-    
+    .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+    }
+    .modal-header, .modal-body {
+      padding: 40px 50px;
+    }
     .nav-tabs li a {
       color: #777;
     }
@@ -102,6 +152,11 @@
     .navbar-brand img{
       width: 30px;
     }
+      
+      .mainContent {
+          width: 900px;
+          margin: auto;
+      }
 
     @media screen and (max-width: 1445px){
       .navbar-brand img{
@@ -113,13 +168,13 @@
       .navbar-brand img{
         width: 30px;
       }
+        .mainContent {
+          width: auto;
+          margin: auto;
+      }
     }
       
-      #success_message{ display: none;}
-      
-      
   </style>
-    
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -139,7 +194,19 @@
 
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+            
+            
+             <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">log in </a></li>
+              <li><a href="registration.php">registration</a></li>
+             
+            </ul>
+          </li>
+            
+            
+
           <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
         </ul>
         <form class="navbar-form navbar-right" action="/action_page.php">
@@ -222,139 +289,107 @@
       </div>
     </div>
   </nav>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-
- <div class="container">
-        <form class="well form-horizontal" action="week5.php " method="post"  id="contact_form" data-toggle="validator"  role="form">
-            <fieldset>
-
-            <!-- Form Name -->
-            <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label">First Name</label>  
-              <div class="col-md-4 inputGroupContainer">
-              <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-                </div>
-              </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label" >Last Name</label> 
-                <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
-                </div>
-              </div>
-            </div>
-
-                <!-- Text input-->
-              <div class="form-group"> 
-              <label class="col-md-4 control-label">Date of Birth</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        <input name="dob" placeholder="Date of Birth" class="form-control"  type="date">
-                    </div>
-                </div>
-              </div>
-                
-                <!-- Text input-->
-              <div class="form-group"> 
-              <label class="col-md-4 control-label">Address</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="address" placeholder="Address" class="form-control"  type="text">
-                    </div>
-                </div>
-              </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label">Username</label>  
-              <div class="col-md-4 inputGroupContainer">
-              <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input  name="username" placeholder="Username" class="form-control"  type="text">
-                </div>
-              </div>
-            </div>
-
-            <!-- Text input-->
-<div class="form-group">
-              <label class="col-md-4 control-label" for="inputPassword"  >Password</label> 
-                <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
-                           
-                </div>
-              </div>
-            </div>
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label" >Confirm Password</label> 
-                <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
-                      
-                </div>
-                       <div class="help-block with-errors"></div>
-              </div>
-            </div>
-
-
-            <!-- Text input-->
-                   <div class="form-group">
-              <label class="col-md-4 control-label">E-Mail</label>  
-                <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
-                </div>
-              </div>
-            </div>
-
-
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label">Contact No.</label>  
-                <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-              <input name="contact_no" placeholder="(61)" class="form-control" type="text">
-                </div>
-              </div>
-            </div>
-
-            <!-- Select Basic -->
-
-            <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-
-            <!-- Button -->
-            <div class="form-group">
-              <label class="col-md-4 control-label"></label>
-              <div class="col-md-4"><br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-              </div>
-            </div>
-
-            </fieldset>
-            </form>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="pictures/promotion1.jpg" alt="New York">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>The atmosphere in New York is lorem ipsum.</p>
         </div>
+      </div>
+
+      <div class="item" >
+        <img src="pictures/promotion1.jpg" alt="Chicago">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago - A night we won't forget.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="pictures/promotion1.jpg" alt="Los Angeles">
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+    
+
+    <div class=mainContent>
+        <div class="containerPromo">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="panel panel-danger">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="panel panel-success">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="containerPromo">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+              </div>
+            </div>
+          </div>
+        </div><br><br>
+    </div>
 
 
 
