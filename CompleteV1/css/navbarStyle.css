@@ -24,7 +24,7 @@
     height: auto;
 }  
 .navbar-brand img{
-    width: 80px;
+    width: 100px;
 }
 .open .dropdown-toggle {
     color: #fff;
@@ -37,7 +37,7 @@
     background-color: red !important;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px) {
     .navbar-brand img{
         width: 40px;
     }
