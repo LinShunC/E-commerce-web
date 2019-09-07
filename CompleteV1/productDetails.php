@@ -28,7 +28,7 @@
 
         <script> 
             $(function(){
-                loadPrice($pid),loadDescription($pid),loadImage($pid),loadRelated($pid);
+                loadPrice($pid),loadDescription($pid),loadImage($pid),loadRelated($pid),loadProductName($pid);
             });
             
             $(document).ready(function(){
@@ -77,8 +77,12 @@
             <div class="row col-sm-10" id="content">
 
                 <div class="row" > 
+                   
                     <div class="col-md-7">
+                        
                         <div class="carouselContainer">
+                            <div id="ProductName">
+                            </div>
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 
 

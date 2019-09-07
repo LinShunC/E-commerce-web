@@ -103,24 +103,24 @@ session_start();
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">HUAWEI</a>
                     <ul class="dropdown-menu">
-                        <li><a href="productDetails.php?pid=11">Huawei Nova 3e</a></li>
-                        <li><a href="productDetails.php?pid=12">Huawei P30 Pro</a></li>
+                        <li><a href="productDetails.php?pid=9">Huawei Nova 3e</a></li>
+                        <li><a href="productDetails.php?pid=10">Huawei P30 Pro</a></li>
                         <li><a href="productsView.php?id=5">All </a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">LG</a>
                     <ul class="dropdown-menu">
-                        <li><a href="productDetails.php?pid=13">LG V30+</a></li>
-                        <li><a href="productDetails.php?pid=14">LG V40 ThinQ </a></li>
+                        <li><a href="productDetails.php?pid=11">LG V30+</a></li>
+                        <li><a href="productDetails.php?pid=12">LG V40 ThinQ </a></li>
                         <li><a href="productsView.php?id=6">All</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">NOKIA</a>
                     <ul class="dropdown-menu">
-                        <li><a href="productDetails.php?pid=15">Nokia 8.1</a></li>
-                        <li><a href="productDetails.php?pid=16">Nokia 9</a></li>
+                        <li><a href="productDetails.php?pid=13">Nokia 8.1</a></li>
+                        <li><a href="productDetails.php?pid=14">Nokia 9</a></li>
                         <li><a href="productsView.php?id=7">All</a></li>
                     </ul>
                 </li>

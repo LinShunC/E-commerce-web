@@ -45,5 +45,16 @@ function loadRelated(pId) {
     xhttp.open("GET", "phpAction/getRelated.php?q="+pId, true);
     xhttp.send();   
 }
+ function loadProductName(pId) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("ProductName").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "phpAction/getProductName.php?q="+pId, true);
+    xhttp.send();   
+}
  
     
