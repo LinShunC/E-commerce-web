@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/logInStyle.css">
         <link rel="stylesheet" type="text/css" href="css/navbarStyle.css">
-        
+
         <script src="JScript/regisScript.js"></script>
 
         <script> 
@@ -36,6 +36,11 @@
 
 
         <div id="includedNav"></div>
+
+        <ol class="breadcrumb">
+            <li><a href="index.php">Home</a></li>
+            <li class="active">Registration</li>     
+        </ol>
 
 
         <div class="container">
@@ -175,13 +180,13 @@
 
 
                     <div id="result"></div>
-                    
+
 
 
                 </fieldset>
 
             </form>
-            
+
         </div>
 
 

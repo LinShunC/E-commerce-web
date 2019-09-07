@@ -12,7 +12,7 @@ if(mysqli_num_rows($results)>0){
         $cat_id = $row["categoryId"];
         $cat_name = $row["cName"];
         
-        echo '<a class="list-group-item list-group-item-action"  href="#list-profile" role="tab" aria-controls='.$cat_name.'  onclick="loadCat('.$cat_id.')">'.$cat_name.'</a>';
+        echo '<a class="list-group-item list-group-item-action"  href="#list-profile" role="tab" aria-controls='.$cat_name.'  onclick="loadCat('.$cat_id.'); loadBreadCrumCat('.$cat_id.')">'.$cat_name.'</a>';
         
 
     }

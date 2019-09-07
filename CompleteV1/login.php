@@ -30,6 +30,11 @@
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
         <div id="includedNav"></div>
+        
+        <ol class="breadcrumb">
+            <li><a href="index.php">Home</a></li>
+            <li class="active">Log in</li>     
+        </ol>
 
 
         <div class="container">

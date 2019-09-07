@@ -15,7 +15,7 @@ session_start();
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
+
         <script> 
             $(function(){
                 $("#includedNav").load("navbar.php"); 
@@ -24,17 +24,68 @@ session_start();
                 $("#includedFooter").load("footer.html"); 
             });
         </script> 
-        
+
         <script src="JScript/pVScript.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/pVStyle.css">
         <link rel="stylesheet" type="text/css" href="css/navbarStyle.css">
+
+        <?php
+
+        if (isset($_REQUEST["id"])){
+            $catId = $_REQUEST["id"];
+
+            echo "
+
+                    <script> 
+                        $(function(){
+                            loadCat($catId);
+                            loadBreadCrumCat($catId);
+                        });
+                    </script> 
+
+                ";
+
+        } else if (isset($_REQUEST["aid"])){
+            $accId = $_REQUEST["aid"];
+
+            echo "
+
+                    <script> 
+                        $(function(){
+                            loadAcc($accId);
+                            loadBreadCrumAcc($accId);
+                        });
+                    </script> 
+
+                ";
+
+        } else {
+
+            echo "
+                    <script> 
+                        $(function(){
+                            loadCat(0); //load random 9 products
+                            loadBreadCrumCat(0);
+                        });
+                    </script> 
+
+                ";
+
+        }
+
+        ?>
+
 
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
         <div id="includedNav"></div>
+        
+        <ol class="breadcrumb" id="breadcrumb" style="margin-bottom:0px">
+              
+        </ol>
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -79,10 +130,6 @@ session_start();
             </a>
         </div>
 
-
-
-
-
         <div class = "mainContent row">
 
 
@@ -96,50 +143,6 @@ session_start();
                 </div>
 
             </div>
-
-
-            <?php
-
-            if (isset($_REQUEST["id"])){
-                $catId = $_REQUEST["id"];
-
-                echo "
-
-                    <script> 
-                        $(function(){
-                            loadCat($catId); 
-                        });
-                    </script> 
-
-                ";
-
-            } else if (isset($_REQUEST["aid"])){
-                $accId = $_REQUEST["aid"];
-
-                echo "
-
-                    <script> 
-                        $(function(){
-                            loadAcc($accId); 
-                        });
-                    </script> 
-
-                ";
-                
-            } else {
-
-                echo "
-                    <script> 
-                        $(function(){
-                            loadCat(0); //load random 9 products
-                        });
-                    </script> 
-
-                ";
-
-            }
-
-            ?>
 
 
             <div class="row col-sm-10" id="content"></div>

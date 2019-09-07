@@ -48,6 +48,7 @@
                         loadRelated($pid);
                         loadProductName($pid);
                         loadHighlights($pid);
+                        loadBreadCrums($pid);
 
                         $('.descriptionButton').click(function(){
                               loadDescription($pid);              
@@ -70,6 +71,10 @@
         ?>
 
         <div id="includedNav"></div>
+        
+        <ol class="breadcrumb" id="breadcrumb" style="margin-bottom:0px">
+              
+        </ol>
 
 
         <div class = "mainContent row">
