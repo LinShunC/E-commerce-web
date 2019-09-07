@@ -7,6 +7,8 @@ body {
 
 }
 
+
+
 #content {
     padding: 10px 20px;
 }
@@ -36,13 +38,6 @@ footer a {
 footer a:hover {
     color: #777;
     text-decoration: none;
-}
-.navbar-brand {
-    padding: 10px 20px;
-    height: auto;
-}  
-.navbar-brand img{
-    width: 80px;
 }
 
 .mainContent {
