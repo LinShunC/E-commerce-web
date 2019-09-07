@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>Products</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -44,24 +44,21 @@ session_start();
                 <div class="item active">
                     <img src="Pictures/promotion1.jpg" alt="New York">
                     <div class="carousel-caption">
-                        <h3>New York</h3>
-                        <p>The atmosphere in New York is lorem ipsum.</p>
+                        <h3>Promotion1</h3>
                     </div>
                 </div>
 
                 <div class="item" >
                     <img src="Pictures/promotion1.jpg" alt="Chicago">
                     <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago - A night we won't forget.</p>
+                        <h3>Promotion2</h3>
                     </div>
                 </div>
 
                 <div class="item">
                     <img src="Pictures/promotion1.jpg" alt="Los Angeles">
                     <div class="carousel-caption">
-                        <h3>LA</h3>
-                        <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+                        <h3>Promotion3</h3>
                     </div>
                 </div>
             </div>

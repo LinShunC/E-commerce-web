@@ -10,6 +10,19 @@ function loadDescription(catId) {
     xhttp.send();   
 }
 
+function loadDetail(catId) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("description").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "phpAction/getDetail.php?q="+catId, true);
+    xhttp.send();   
+}
+
+
 function loadPrice(pId) {
     var xhttp;
     xhttp = new XMLHttpRequest();
@@ -45,6 +58,7 @@ function loadRelated(pId) {
     xhttp.open("GET", "phpAction/getRelated.php?q="+pId, true);
     xhttp.send();   
 }
+
  function loadProductName(pId) {
     var xhttp;
     xhttp = new XMLHttpRequest();
@@ -54,6 +68,18 @@ function loadRelated(pId) {
         }
     };
     xhttp.open("GET", "phpAction/getProductName.php?q="+pId, true);
+    xhttp.send();   
+}
+
+function loadHighlights(pId) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("highlights").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "phpAction/getHighlights.php?q="+pId, true);
     xhttp.send();   
 }
  

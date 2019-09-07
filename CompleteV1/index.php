@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
+
         <script> 
             $(function(){
                 $("#includedContent").load("navbar.php"); 
@@ -38,24 +38,21 @@
                 <div class="item active">
                     <img src="Pictures/promotion1.jpg" alt="New York">
                     <div class="carousel-caption">
-                        <h3>New York</h3>
-                        <p>The atmosphere in New York is lorem ipsum.</p>
+                        <h3>Promotion1</h3>
                     </div>
                 </div>
 
                 <div class="item" >
                     <img src="Pictures/promotion1.jpg" alt="Chicago">
                     <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago - A night we won't forget.</p>
+                        <h3>Promotion2</h3>
                     </div>
                 </div>
 
                 <div class="item">
                     <img src="Pictures/promotion1.jpg" alt="Los Angeles">
                     <div class="carousel-caption">
-                        <h3>LA</h3>
-                        <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+                        <h3>Promotion3</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +101,7 @@
 
         <script>
             $(document).ready(function(){
-                
+
                 // Initialize Tooltip
                 $('[data-toggle="tooltip"]').tooltip();
 

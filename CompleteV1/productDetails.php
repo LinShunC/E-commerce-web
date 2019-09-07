@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>Product Detail</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -15,33 +15,7 @@
                 $("#includedContent").load("navbar.php"); 
             });
         </script> 
-
-        <?php
-
-        session_start();
-
-
-        if (isset($_REQUEST["pid"])){
-            $pid = $_REQUEST["pid"];
-
-            echo "
-
-        <script> 
-            $(function(){
-                loadPrice($pid),loadDescription($pid),loadImage($pid),loadRelated($pid),loadProductName($pid);
-            });
-            
-            $(document).ready(function(){
-                $('.descriptionButton').click(function(){
-                      loadDescription($pid);              
-                });
-            });
-        </script> 
-
-    ";
-        }
-
-        ?>
+        
         <script src="JScript/pVScript.js"></script>
         <script src="JScript/showDES.js"></script>
 
@@ -52,12 +26,47 @@
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+        
+        <?php
+
+        session_start();
+
+
+        if (isset($_REQUEST["pid"])){
+            $pid = $_REQUEST["pid"];
+
+            echo "
+
+                <script> 
+                    $(function(){
+                        loadPrice($pid);
+                        loadDescription($pid);
+                        loadImage($pid);
+                        loadRelated($pid);
+                        loadProductName($pid);
+                        loadHighlights($pid);
+
+                        $('.descriptionButton').click(function(){
+                              loadDescription($pid);              
+                        });
+
+                        $('.detailsButton').click(function(){
+                              loadDetail($pid);              
+                        });
+
+                    });
+
+                    $(document).ready(function(){
+
+                    });
+                </script> 
+
+            ";
+        }
+
+        ?>
 
         <div id="includedContent"></div>
-
-
-
-
 
 
         <div class = "mainContent row">
@@ -77,18 +86,18 @@
             <div class="row col-sm-10" id="content">
 
                 <div class="row" > 
-                   
+
                     <div class="col-md-7">
-                        
+
                         <div class="carouselContainer">
                             <div id="ProductName">
                             </div>
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                
+
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox" id="ImageBox">
-                                    
+
                                 </div>
 
                                 <!-- Left and right controls -->
@@ -106,10 +115,8 @@
                     <div class="col-md-5">
                         <div class="highlightsContainer">
                             <h2>Product Highlights</h2><br>
-                            <ul>
-                                <li>item1</li>
-                                <li>item2</li>
-                                <li>item3</li>
+                            <ul id="highlights">
+                                
 
                             </ul>
 
@@ -133,24 +140,19 @@
                         <button class="descriptionButton"  type="button">
                             Description</button>
 
-                        <button  class="detailsButton" type="button" onclick='document.getElementById("description").innerHTML ="aa"  '>Details</button>
+                        <button  class="detailsButton" type="button">Details</button>
                         <div class="descriptionBox">
 
                             <p id="description"> 
 
-
                             </p>
-                            <p> 
-
-                            </p>
+                            
                         </div>
                     </div>
                     <div class="col-md-4">
                         <h2>Related Products</h2>
                         <div id="Related">
-                            <?php 
-                            include 'phpAction/getRelated.php';
-                            ?>
+                            
 
                         </div>
                     </div>

@@ -12,9 +12,9 @@ if(mysqli_num_rows($results)>0){
 
     while ($row = mysqli_fetch_array($results)){
         $prod_Des = $row["ProductDescription"];
-    $_SESSION['Description'] = $prod_Des;
+        $_SESSION['Description'] = $prod_Des;
 
-        echo ''.$prod_Des.'';
+        echo $prod_Des;
     }
 }
 ?>
