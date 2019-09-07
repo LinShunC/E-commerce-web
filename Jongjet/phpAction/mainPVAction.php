@@ -7,6 +7,7 @@ $results = mysqli_query($connection,$cat_sql);
 if(mysqli_num_rows($results)>0){
 
     while ($row = mysqli_fetch_array($results)){
+        $pid = $row["productId"];
         $prod_name = $row["pName"];
         $prod_price = $row["price"];
         $prod_pic = $row["link1"];
@@ -17,7 +18,7 @@ if(mysqli_num_rows($results)>0){
 
                 <div class="panel panel-primary">
                         <div class="panel-heading">'.$prod_name.'</div>
-                        <div class="panel-body"><img src="'.$prod_pic.'" class="img-responsive" style="width:100%" alt="Image"></div>
+                        <div class="panel-body"><a href="productDetail.php?pid='.$pid.'"><img src="'.$prod_pic.'" class="img-responsive" style="width:100%" alt="Image" ></a></div>
                         <div class="panel-footer">price : '.$prod_price.'</div>
                 </div>
 

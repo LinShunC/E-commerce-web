@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -79,7 +85,6 @@
 
 
 
-
             <div class="row col-sm-2" id="sideList">
 
                 <div class="list-group" id="list-tab" role="tablist">
@@ -91,10 +96,51 @@
             </div>
 
 
+            <?php
+
+            if (isset($_REQUEST["id"])){
+                $catId = $_REQUEST["id"];
+
+                echo "
+
+                    <script> 
+                        $(function(){
+                            loadCat($catId); 
+                        });
+                    </script> 
+
+                ";
+
+            } else if (isset($_REQUEST["aid"])){
+                $accId = $_REQUEST["aid"];
+
+                echo "
+
+                    <script> 
+                        $(function(){
+                            loadAcc($accId); 
+                        });
+                    </script> 
+
+                ";
+                
+            } else {
+
+                echo "
+                    <script> 
+                        $(function(){
+                            loadCat(0); //load random 9 products
+                        });
+                    </script> 
+
+                ";
+
+            }
+
+            ?>
+
+
             <div class="row col-sm-10" id="content"></div>
-
-
-
 
         </div>
 

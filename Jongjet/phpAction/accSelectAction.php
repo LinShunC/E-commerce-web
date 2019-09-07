@@ -2,17 +2,15 @@
 include "db.php";
 
 // get the id parameter from URL
-$catId = $_REQUEST["id"];
+$accId = $_REQUEST["id"];
+
+$acc_sql = "SELECT * FROM product 
+INNER JOIN pictures ON product.productId=pictures.productId 
+INNER JOIN accessory_product ON product.productId=accessory_product.productId 
+WHERE accId = $accId;";
 
 
-if ($catId != 0){
-    $cat_sql = "SELECT * FROM product INNER JOIN pictures ON product.productId=pictures.productId WHERE catagoryId = ".$catId;
-} else {
-    $cat_sql = "SELECT * FROM product INNER JOIN pictures ON product.productId=pictures.productId ORDER BY RAND() LIMIT 0,9";
-}
-
-
-$results = mysqli_query($connection,$cat_sql);
+$results = mysqli_query($connection,$acc_sql);
 
 if(mysqli_num_rows($results)>0){
 
@@ -25,7 +23,6 @@ if(mysqli_num_rows($results)>0){
         echo '
 
             <div class="col-sm-4">
-
                 <div class="panel panel-primary">
                         <div class="panel-heading">'.$prod_name.'</div>
                         <div class="panel-body"><a href="productDetail.php?pid='.$pid.'"><img src="'.$prod_pic.'" class="img-responsive" style="width:100%" alt="Image" ></a></div>
