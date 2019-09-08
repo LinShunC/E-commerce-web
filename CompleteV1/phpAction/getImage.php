@@ -30,14 +30,16 @@ if(mysqli_num_rows($results)>0){
             if($j == 0){
                 echo '
                 <div class="item active">
-                    <div class="ImageContainer"><img src="'.$pictures[$j].'" alt="Pic'.$j.'" ></div>
+                    <div class="ImageContainer"><img src="'.$pictures[$j].'" 
+                    id="zoomImage"
+                    alt="Pic'.$j.'" ></div>
                 </div>
                 
             ';
             } else {
                 echo '
                 <div class="item">
-                    <div class="ImageContainer"><img src="'.$pictures[$j].'" alt="Pic'.$j.'" ></div>
+                    <div class="ImageContainer"><img src="'.$pictures[$j].'" alt="Pic'.$j.'" id="zoomImage" ></div>
                 </div>
                 
             ';

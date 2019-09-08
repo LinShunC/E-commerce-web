@@ -19,6 +19,8 @@
                 $("#includedFooter").load("footer.html"); 
             });
         </script> 
+       
+        
         
         <script src="JScript/pVScript.js"></script>
         <script src="JScript/showDES.js"></script>
@@ -58,11 +60,13 @@
                               loadDetail($pid);              
                         });
 
+
+            
+
+
                     });
 
-                    $(document).ready(function(){
-
-                    });
+                   
                 </script> 
 
             ";
@@ -107,18 +111,24 @@
                                 <div class="carousel-inner" role="listbox" id="ImageBox">
 
                                 </div>
+                                
 
                                 <!-- Left and right controls -->
                                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
+                                
                                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
+                                
                             </div>
+<button onclick ="zoomin()"class="btn" >Zoom In </button >
+<button onclick ="zoomout()" class="btn" style="float:right;">Zoom Out</button>
                         </div>
+                        
                     </div>
                     <div class="col-md-5">
                         <div class="highlightsContainer">

@@ -123,7 +123,17 @@ footer a:hover {
     height: 300px;
     width: 300px;
 }
-
+#zoomImage
+{
+    height: 300px;
+    width: 300px;
+}
+   #zoomImage:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+        transition: 0.6s ease;
+}
 
 @media screen and (max-width: 768px){
     
