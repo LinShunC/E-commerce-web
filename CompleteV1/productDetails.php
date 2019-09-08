@@ -125,8 +125,6 @@
                                 </a>
                                 
                             </div>
-<button onclick ="zoomin()"class="btn" >Zoom In </button >
-<button onclick ="zoomout()" class="btn" style="float:right;">Zoom Out</button>
                         </div>
                         
                     </div>
