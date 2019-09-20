@@ -4,6 +4,8 @@
         <title>Homepage</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Mobile E-Commerce website for AIT Project.">
+        <meta name="keywords" content="Academy of information and technologies, E-Commerce, Buy mobile phone, Mobile phone, phone">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
