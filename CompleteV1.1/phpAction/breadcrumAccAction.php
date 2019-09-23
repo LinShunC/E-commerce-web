@@ -21,6 +21,7 @@ if(mysqli_num_rows($results)>0){
 
             <li><a href="index.php">Home</a></li>
             <li><a href="productsView.php">Products</a></li>
+            <li><a href="productsView.php?id=8">Accessories</a></li>
             <li class="active">'.$acc_name.'</li>   
 
         ';
