@@ -1,6 +1,8 @@
 <?php
 include "db.php";
 
+session_start();
+
 // get the id parameter from URL
 $keyword = $_REQUEST["kw"];
 

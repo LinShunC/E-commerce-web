@@ -198,8 +198,8 @@ session_start();
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a href="#" onclick="sortBy(1)">Name</a></li>
-                                <li><a href="#" onclick="sortBy(2)">Price</a></li>
+                                <li><a href="#!" onclick="sortBy(1)">Name</a></li>
+                                <li><a href="#!" onclick="sortBy(2)">Price</a></li>
                             </ul>
                         </div>
                     </div>
@@ -212,8 +212,8 @@ session_start();
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order by
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" onclick="orderBy(1)">ascesding</a></li>
-                            <li><a href="#" onclick="orderBy(2)">descending</a></li>
+                            <li><a href="#!" onclick="orderBy(1)">ascesding</a></li>
+                            <li><a href="#!" onclick="orderBy(2)">descending</a></li>
                         </ul>
                     </div>
 
