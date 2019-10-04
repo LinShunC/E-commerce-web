@@ -1,13 +1,18 @@
 <?php
 include "db.php";
 
+session_start();
+
 // get the id parameter from URL
 $accId = $_REQUEST["id"];
 
 $acc_sql = "SELECT * FROM product 
 INNER JOIN pictures ON product.productId=pictures.productId 
 INNER JOIN accessory_product ON product.productId=accessory_product.productId 
-WHERE accId = $accId;";
+WHERE accId = $accId";
+
+//save for sorting
+$_SESSION['sqlLine'] = $acc_sql;
 
 
 $results = mysqli_query($connection,$acc_sql);

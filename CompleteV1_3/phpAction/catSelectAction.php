@@ -1,6 +1,8 @@
 <?php
 include "db.php";
 
+session_start();
+
 // get the id parameter from URL
 $catId = $_REQUEST["id"];
 
@@ -10,6 +12,9 @@ if ($catId != 0){
 } else {
     $cat_sql = "SELECT * FROM product INNER JOIN pictures ON product.productId=pictures.productId ORDER BY RAND() LIMIT 0,9";
 }
+
+//save for sorting
+$_SESSION['sqlLine'] = $cat_sql;
 
 
 $results = mysqli_query($connection,$cat_sql);

@@ -7,6 +7,9 @@ $keyword = $_REQUEST["kw"];
 
 $cat_sql = "SELECT * FROM product INNER JOIN pictures ON product.productId=pictures.productId WHERE pName LIKE '%$keyword%'";
 
+//save for sorting
+$_SESSION['sqlLine'] = $cat_sql;
+
 
 $results = mysqli_query($connection,$cat_sql);
 

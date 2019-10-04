@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
+
         <script> 
             $(function(){
                 $("#includedNav").load("navbar.php"); 
@@ -19,9 +19,9 @@
                 $("#includedFooter").load("footer.html"); 
             });
         </script> 
-       
-        
-        
+
+
+
         <script src="JScript/pVScript.js"></script>
         <script src="JScript/showDES.js"></script>
 
@@ -31,7 +31,7 @@
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-        
+
         <?php
 
         session_start();
@@ -43,7 +43,7 @@
             echo "
 
                 <script>
-                
+
                     $(function(){
                         loadPrice($pid);
                         loadDescription($pid);
@@ -62,39 +62,37 @@
                         });
                     });
 
-                   
+
                 </script> 
 
             ";
-                 if (isset($_SESSION['username']))
-        {
-              echo "
+            if (isset($_SESSION['username']))
+            {
+                echo "
 
-                <script>   $(function(){
-        $('#cartButton').click(function(){
-                         
-                              addCart($pid);              
+                <script>   
+                    $(function(){
+                        $('#cartButton').click(function(){
+                            addCart($pid);              
                         });
-                        
-
 
                     });
 
-                   
+
                 </script> 
 
             ";
-             }
+            }
         }
-        
-        
+
+
 
         ?>
 
         <div id="includedNav"></div>
-        
+
         <ol class="breadcrumb" id="breadcrumb" style="margin-bottom:0px">
-              
+
         </ol>
 
 
@@ -128,28 +126,28 @@
                                 <div class="carousel-inner" role="listbox" id="ImageBox">
 
                                 </div>
-                                
+
 
                                 <!-- Left and right controls -->
                                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                
+
                                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
-                                
+
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-md-5">
                         <div class="highlightsContainer">
                             <h2>Product Highlights</h2><br>
                             <ul id="highlights">
-                                
+
 
                             </ul>
 
@@ -161,7 +159,7 @@
                                 <option value = "4">four</option></select>
                             <br><br>
                             <button class="btn" type="submit" id="cartButton">Add to cart</button>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -179,13 +177,13 @@
                             <p id="description"> 
 
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-3">
                         <h4>Related Products</h4>
                         <div id="Related">
-                            
+
 
                         </div>
                     </div>

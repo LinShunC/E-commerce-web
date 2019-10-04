@@ -57,3 +57,35 @@ function loadBreadCrumAcc(accId) {
     xhttp.open("GET", "phpAction/breadcrumAccAction.php?id="+accId, true);
     xhttp.send();   
 }
+
+function sorting(key) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            if(this.responseText != ''){
+                document.getElementById("content").innerHTML = this.responseText;
+            }
+            
+        }
+    };
+    xhttp.open("GET", "phpAction/sorting.php?key="+key, true);
+    xhttp.send();   
+}
+
+function ordering(key) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            if(this.responseText != ''){
+                document.getElementById("content").innerHTML = this.responseText;
+            }
+            
+        }
+    };
+    xhttp.open("GET", "phpAction/ordering.php?key="+key, true);
+    xhttp.send();   
+}

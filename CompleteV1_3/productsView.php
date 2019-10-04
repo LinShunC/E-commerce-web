@@ -19,21 +19,38 @@ session_start();
         <script> 
             $(function(){
                 $("#includedNav").load("navbar.php"); 
-            });
-            $(function(){
                 $("#includedFooter").load("footer.html"); 
             });
-function DeleteItem(id) {
 
-          $.ajax({
-        type: "Delete",
-        url: "phpAction/Deleteitem.php?q="+id, // 
-        success: function () {
-                       alert("Delete From cart successfully");
-                    location.reload();
-        }
-    });
-    }
+            function DeleteItem(id) {
+
+                $.ajax({
+                    type: "Delete",
+                    url: "phpAction/Deleteitem.php?q="+id, // 
+                    success: function () {
+                        alert("Delete From cart successfully");
+                        location.reload();
+                    }
+                });
+            }
+
+            function sortBy(choice){
+                if (choice == 1){
+                    sorting('name');
+                }
+                if (choice == 2){
+                    sorting('price');
+                }
+            }
+            
+            function orderBy(choice){
+                if (choice == 1){
+                    ordering('asc');
+                }
+                if (choice == 2){
+                    ordering('desc');
+                }
+            }
         </script> 
 
         <script src="JScript/pVScript.js"></script>
@@ -43,20 +60,19 @@ function DeleteItem(id) {
 
         <?php
         if (isset($_REQUEST["Cart"])){
-              $q = $_REQUEST["Cart"];
+            $q = $_REQUEST["Cart"];
             echo "
 
                     <script> 
                         $(function(){
                             loadCart($q);
-                       
                         });
                     </script> 
 
                 ";
 
         }
-        
+
         else if (isset($_GET["keyword"])){
             $keyword = $_GET["keyword"];
             echo "
@@ -68,7 +84,7 @@ function DeleteItem(id) {
                     </script> 
 
                 ";
-            
+
         }
         else if (isset($_REQUEST["id"])){
             $catId = $_REQUEST["id"];
@@ -111,11 +127,8 @@ function DeleteItem(id) {
                 ";
 
         }
-        
-        //Searching things
-        if (isset($_REQUEST["keyword"])){
-            
-        }
+
+
 
         ?>
 
@@ -125,9 +138,9 @@ function DeleteItem(id) {
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
         <div id="includedNav"></div>
-        
+
         <ol class="breadcrumb" id="breadcrumb" style="margin-bottom:0px">
-              
+
         </ol>
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -172,6 +185,46 @@ function DeleteItem(id) {
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        
+    
+        <div class="filterBar" style="background-color: gray;">
+
+            <div class="row">
+                
+                <div class="col-sm-6">
+
+                    <div class="pull-right">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="sortBy(1)">Name</a></li>
+                                <li><a href="#" onclick="sortBy(2)">Price</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order by
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="orderBy(1)">ascesding</a></li>
+                            <li><a href="#" onclick="orderBy(2)">descending</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
 
         <div class = "mainContent row">
 
