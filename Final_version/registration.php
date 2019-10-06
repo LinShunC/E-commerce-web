@@ -20,22 +20,15 @@
 
         <script src="JScript/regisScript.js"></script>
 
-        <script> 
-            $(function(){
-                $("#includedNav").load("navbar.php"); 
-            });
-            $(function(){
-                $("#includedFooter").load("footer.html"); 
-            });
-        </script> 
-
 
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 
-        <div id="includedNav"></div>
+        <?php
+        include "navbar.php";
+        ?>
 
         <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>
@@ -190,7 +183,9 @@
         </div>
 
 
-        <div id="includedFooter"></div>
+        <?php
+        include "footer.html";
+        ?>
 
     </body>
 </html>

@@ -12,15 +12,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <script> 
-            $(function(){
-                $("#includedNav").load("navbar.php"); 
-            });
-            $(function(){
-                $("#includedFooter").load("footer.html"); 
-            });
-        </script> 
-
         <link rel="stylesheet" type="text/css" href="css/navbarStyle.css">
         <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
 
@@ -28,7 +19,9 @@
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <div id="includedNav"></div>
+        <?php
+        include "navbar.php";
+        ?>
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -94,7 +87,9 @@
         </div>
 
 
-        <div id="includedFooter"></div>
+        <?php
+        include "footer.html";
+        ?>
 
 
     </body>

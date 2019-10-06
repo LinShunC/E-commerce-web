@@ -11,10 +11,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
         <script> 
-            $(function(){
-                $("#includedNav").load("navbar.php"); 
-                $("#includedFooter").load("footer.html"); 
-            });
 
             function DeleteItem(id) {
 
@@ -131,7 +127,9 @@
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <div id="includedNav"></div>
+        <?php
+        include "navbar.php";
+        ?>
 
         <ol class="breadcrumb" id="breadcrumb" style="margin-bottom:0px">
 
@@ -239,7 +237,9 @@
 
         </div>
 
-        <div id="includedFooter"></div>
+        <?php
+        include "footer.html";
+        ?>
 
     </body>
 </html>

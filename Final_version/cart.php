@@ -13,10 +13,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
         <script> 
-            $(function(){
-                $("#includedNav").load("navbar.php"); 
-                $("#includedFooter").load("footer.html"); 
-            });
+            
 
             function loadcart(){
 
@@ -84,7 +81,9 @@
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <div id="includedNav"></div>
+        <?php
+        include "navbar.php";
+        ?>
 
 
         <ol class="breadcrumb">
@@ -100,8 +99,6 @@
                     <table class="table table-striped" id="tableData">
 
                         <?php
-
-                        session_start();
 
                         if(isset($_SESSION['cid'])){
 
@@ -134,7 +131,9 @@
         </div>
 
 
-        <div id="includedFooter"></div>
+        <?php
+        include "footer.html";
+        ?>
 
 
     </body>
