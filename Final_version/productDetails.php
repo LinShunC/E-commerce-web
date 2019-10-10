@@ -28,7 +28,7 @@ session_start();
                 window.location.href = "cart.php?pid="+pId+"&qty="+qty;
 
             }
-            
+
             function addWlist(pId) {
 
                 window.location.href = "wishlist.php?pid="+pId;
@@ -62,6 +62,7 @@ session_start();
                         loadProductName($pid);
                         loadHighlights($pid);
                         loadBreadCrums($pid);
+                        loadRating($pid);
 
                         $('.descriptionButton').click(function(){
                               loadDescription($pid);              
@@ -78,6 +79,12 @@ session_start();
                         $('#cartWButton').click(function(){
                             addWlist($pid);              
                         });
+                        
+                        $('#btnRating').click(function(){
+                            addRating($pid);
+                            loadRating($pid);
+                        });
+
 
                     });
 
@@ -86,7 +93,6 @@ session_start();
             ";
 
         }
-
 
 
         ?>
@@ -153,7 +159,8 @@ session_start();
 
                             <div style="text-align:center">
 
-                                <h3 id="price">Price AUD xx.xx</h3><br>
+                                <h3 id="price">Price AUD xx.xx</h3>
+                                <h4 id="rating">Rating x.x out of 5 stars</h4><br>
                                 <P Style="display: inline;">QTY&nbsp;&nbsp;</P>
                                 <select id="qty">  
                                     <option value = "1">1</option>
@@ -198,6 +205,33 @@ session_start();
                         </div>
                     </div>
                 </div>
+
+                
+                <?php
+                    if(isset($_SESSION['cid'])){
+                        echo '
+                        
+                            <div style="text-align:center">
+
+                            <h4>Rating for this products</h4>
+
+                            <select name="rate" id="rate">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select> 
+                            <p style="display: inline">&nbsp;&nbsp;out of 5&nbsp;&nbsp;</p>
+
+                            <button class="btn" type="submit" id="btnRating" >submit</button>
+
+
+                        </div>
+                        ';
+                    }
+                ?>
+                
             </div>
 
             <p id="checkBar"></p>

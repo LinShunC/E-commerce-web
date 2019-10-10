@@ -94,3 +94,30 @@ function loadBreadCrums(pId) {
     xhttp.open("GET", "phpAction/breadcrumProAction.php?id="+pId, true);
     xhttp.send();   
 }
+
+function loadRating(pId) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("rating").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "phpAction/ratingAction.php?pid="+pId, true);
+    xhttp.send();   
+}
+
+function addRating(pId) {
+    
+    var rating = $("#rate").val();
+    
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert("Thank you for your rating");
+        }
+    };
+    xhttp.open("GET", "phpAction/ratingAddAction.php?pid="+pId+"&rating="+rating, true);
+    xhttp.send();   
+}
